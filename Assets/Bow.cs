@@ -14,6 +14,8 @@ public class Bow : Weapon
     public override bool blockedPath { get; set; }
     public override Vector3 blockerPosition { get; set; }
 
+    public Animator animator;
+
     internal override Vector3 getLocalTransform()
     {
         return new Vector3(0.1f, -0.2f, 0);
@@ -60,6 +62,7 @@ public class Bow : Weapon
         arrowComponent.Init(this);
         Vector3 direction = (enemy.transform.position - transform.position).normalized;
         arrowComponent.Fire(direction);
+        animator.Play("BowShoot");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
