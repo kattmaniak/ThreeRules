@@ -106,20 +106,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5812625825091669646, guid: e586eb6a7f5cf8340880e47c15ab783d, type: 3}
   m_PrefabInstance: {fileID: 5170464526958218293}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8106067817818431239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687643094205563579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d3c4076efb0d5438d0d79e4f0c33b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies: []
-  attackCollider: {fileID: 9041763380070919370}
 --- !u!70 &9041763380070919370
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +122,40 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0035985708, y: 0.13}
   m_Size: {x: 0.44, y: 0.64}
   m_Direction: 0
+--- !u!114 &8106067817818431239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687643094205563579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d3c4076efb0d5438d0d79e4f0c33b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closestEnemy: {fileID: 0}
+  enemies: []
+  attackCollider: {fileID: 9041763380070919370}
+  animator: {fileID: 8435183075538606570}
+--- !u!95 &8435183075538606570
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687643094205563579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8cfb0d804204b1c4e9e3ad69de5794d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

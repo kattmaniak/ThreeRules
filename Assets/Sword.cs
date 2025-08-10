@@ -18,6 +18,8 @@ public class Sword : Weapon
 
     public Collider2D attackCollider;
 
+    public Animator animator;
+
     internal override Vector3 getLocalTransform()
     {
         return new Vector3(0.13f, -0.13f, 0);
@@ -43,6 +45,7 @@ public class Sword : Weapon
             enemy.TakeDamage(this);
             inAttackRange = false;
             lastAttackTime = Time.time;
+            animator.Play("SwordSlash");
         }
     }
 
