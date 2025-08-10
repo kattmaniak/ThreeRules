@@ -18,6 +18,8 @@ public class Rosary : Weapon
     public override bool blockedPath { get; set; }
     public override Vector3 blockerPosition { get; set; }
 
+    public Animator animator;
+
     private List<Unit> alliesInRange = new List<Unit>();
 
     private List<Unit> allies = new List<Unit>();
@@ -43,6 +45,7 @@ public class Rosary : Weapon
                 ally.Heal(attackPower);
             }
         }
+        animator.Play("RosaryShake");
     }
 
     internal override Vector3 getLocalTransform()
