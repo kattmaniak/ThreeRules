@@ -19,6 +19,8 @@ public class Scythe : Weapon
 
     private List<Unit> enemiesInRange = new List<Unit>();
 
+    public Animator animator;
+
     internal override Vector3 getLocalTransform()
     {
         return new Vector3(0.4f, 0.25f, 0);
@@ -62,6 +64,10 @@ public class Scythe : Weapon
                 continue;
             }
             enemy.TakeDamage(this);
+        }
+        if (enemiesInRange.Count > 0)
+        {
+            animator.Play("ScytheSlash");
         }
     }
 
