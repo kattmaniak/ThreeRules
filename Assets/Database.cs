@@ -155,7 +155,7 @@ public static class Database
 
         enemies.Clear();
 
-        int numberOfEnemies = 4 - GetKingHP(king) + king + UnityEngine.Random.Range(0, 2);
+        int numberOfEnemies = 4 - GetKingHP(king) + king + UnityEngine.Random.Range(0, king);
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
