@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public GameObject tutorialPanel;
 
     public static void StartGame()
     {
@@ -12,5 +13,15 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log("Exiting game.");
         Application.Quit();
+    }
+
+    public void ShowTutorial()
+    {
+        tutorialPanel.SetActive(true);
+    }
+
+    public void HideTutorial()
+    {
+        tutorialPanel.SetActive(false);
     }
 }
