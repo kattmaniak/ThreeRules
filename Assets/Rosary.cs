@@ -129,11 +129,11 @@ public class Rosary : Weapon
     private void OnTriggerStay2D(Collider2D collision)
     {
         Unit unit = collision.GetComponent<Unit>();
-        if (unit != null && unit.isActiveAndEnabled && allies.Contains(unit))
+        if (unit != null && unit.isActiveAndEnabled && alliesInRange.Contains(unit))
         {
             inAttackRange = true;
         }
-        else if (unit != null && !alliesInRange.Contains(unit))
+        else if (unit != null && unit.isActiveAndEnabled && allies.Contains(unit) && !alliesInRange.Contains(unit))
         {
             alliesInRange.Add(unit);
             inAttackRange = true;
