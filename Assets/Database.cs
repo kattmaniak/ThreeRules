@@ -159,7 +159,7 @@ public static class Database
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
-            string enemyType = "I"; // Default enemy type
+            string enemyType = "I";
             float enemyTypeChance = UnityEngine.Random.Range(0f, 1f);
             if (enemyTypeChance < 0.05f)
             {
@@ -167,11 +167,11 @@ public static class Database
             }
             else if (enemyTypeChance < 0.35f)
             {
-                enemyType = "L"; // Archer
+                enemyType = "L";
             }
             else if (enemyTypeChance < 0.65f)
             {
-                enemyType = "D"; // Bow
+                enemyType = "D";
             }
             enemyType += (i + 101).ToString();
             Vector3 enemyPosition = new Vector3(UnityEngine.Random.Range(-3f, 3f), UnityEngine.Random.Range(-3f, 3f), 0);
