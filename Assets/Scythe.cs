@@ -29,7 +29,7 @@ public class Scythe : Weapon
     public Scythe()
     {
         holderHealth = 70f;
-        attackPower = 26f;
+        attackPower = 22f;
         speed = 0.6f;
         cooldownTime = 2.5f;
         lastAttackTime = 0f;
