@@ -16,4 +16,4 @@ Scythe Blessing;Increase scythe critical chance (+7%);CL0.07
 Extra Rations;Increase all units health (+20%), reduce speed (-10%);HX0.2:SX-0.1
 Speed Training;Increase all units speed (+25%);SX0.25
 Bless The King;Increase all units critical chance (+7%);CX0.07
-Wounded Healer;Priests have half health, but heal double;H+-0.2:A+1.0
+Wounded Healer;Priests have half health, but heal double;H+-0.5:A+1.0
