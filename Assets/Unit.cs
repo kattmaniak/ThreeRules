@@ -23,6 +23,10 @@ public class Unit : MonoBehaviour
 
     private bool dragging = false;
     private Vector3 offset;
+    
+    public GameObject healthBarSprite;
+
+    public GameObject healthBarBackgroundSprite;
 
 
     public void SetEnemy()
@@ -34,6 +38,16 @@ public class Unit : MonoBehaviour
     public void SetInCombat(bool value)
     {
         inCombat = value;
+        if (value)
+        {
+            healthBarSprite.SetActive(true);
+            healthBarBackgroundSprite.SetActive(true);
+        }
+        else
+        {
+            healthBarSprite.SetActive(false);
+            healthBarBackgroundSprite.SetActive(false);
+        }
     }
 
 
@@ -50,6 +64,9 @@ public class Unit : MonoBehaviour
 
         Vector3 pushDirection = (transform.position - attacker.transform.position).normalized;
         rb.velocity = pushDirection * damage;
+
+        healthBarSprite.transform.localScale = new Vector3(health / myWeapon.holderHealth * 0.5f, 0.05f, 0f);
+        healthBarSprite.transform.localPosition = new Vector3(-((1.0f - health / myWeapon.holderHealth) * 0.25f), 0.35f, -1f);
 
         if (health <= 0)
         {
@@ -195,6 +212,10 @@ public class Unit : MonoBehaviour
         {
             health = myWeapon.holderHealth;
         }
+
+        healthBarSprite.transform.localScale = new Vector3(health / myWeapon.holderHealth * 0.5f, 0.05f, 0f);
+        healthBarSprite.transform.localPosition = new Vector3(-(health / myWeapon.holderHealth * 0.25f), 0.35f, -1f);
+
         Debug.Log("Unit " + weaponID + " healed. Current health: " + health);
     }
 }
