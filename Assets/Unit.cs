@@ -214,7 +214,7 @@ public class Unit : MonoBehaviour
         }
 
         healthBarSprite.transform.localScale = new Vector3(health / myWeapon.holderHealth * 0.5f, 0.05f, 0f);
-        healthBarSprite.transform.localPosition = new Vector3(-(health / myWeapon.holderHealth * 0.25f), 0.35f, -1f);
+        healthBarSprite.transform.localPosition = new Vector3(-((1.0f - health / myWeapon.holderHealth) * 0.25f), 0.35f, -1f);
 
         Debug.Log("Unit " + weaponID + " healed. Current health: " + health);
     }
