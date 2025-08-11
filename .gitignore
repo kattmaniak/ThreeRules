@@ -1,6 +1,7 @@
 /.vscode
 /Assembly-CSharp.csproj
 /Build
+/WebBuild
 /Library
 /Logs
 /Packages
