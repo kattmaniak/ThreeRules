@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -28,10 +30,15 @@ public class UpgradeManager : MonoBehaviour
         instance = this;
         Debug.Log("UpgradeManager initialized.");
 
-        if (Database.GetUnits().Count == 0)
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            notice.text = "Select your starting army.";
+            StartCoroutine(webGetUpgrades());
         }
+
+        if (Database.GetUnits().Count == 0)
+            {
+                notice.text = "Select your starting army.";
+            }
 
         List<string> upgrades = new List<string>();
         foreach (var upgrade in Database.GetAllUpgrades())
@@ -65,6 +72,26 @@ public class UpgradeManager : MonoBehaviour
             }
         }
 
+    }
+
+    private IEnumerator webGetUpgrades()
+    {
+        string url = Path.Combine(Application.streamingAssetsPath, "upgrades.txt");
+        using (UnityEngine.Networking.UnityWebRequest www = UnityEngine.Networking.UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityEngine.Networking.UnityWebRequest.Result.ConnectionError || www.result == UnityEngine.Networking.UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.LogError("Error loading upgrades: " + www.error);
+            }
+            else
+            {
+                string[] lines = www.downloadHandler.text.Split('\n');
+                List<string> upgrades = new List<string>(lines);
+                Database.SetAllUpgrades(upgrades);
+            }
+        }
     }
 
     public void SelectUpgrade(Upgrade upgrade)

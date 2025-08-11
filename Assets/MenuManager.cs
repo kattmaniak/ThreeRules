@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ public class MenuManager : MonoBehaviour
     public GameObject tutorialPanel;
 
     [SerializeField] Slider volumeSlider;
+
+    public Button exitGameButton;
 
     public static void StartGame()
     {
@@ -48,6 +51,11 @@ public class MenuManager : MonoBehaviour
         {
             AudioListener.volume = 0.5f; // Default volume
             volumeSlider.value = 0.5f;
+        }
+
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            exitGameButton.gameObject.SetActive(false);
         }
     }
 }

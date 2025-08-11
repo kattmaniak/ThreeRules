@@ -1420,6 +1420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialPanel: {fileID: 784434466}
   volumeSlider: {fileID: 18927915}
+  exitGameButton: {fileID: 1325050732}
 --- !u!4 &1028310622
 Transform:
   m_ObjectHideFlags: 0

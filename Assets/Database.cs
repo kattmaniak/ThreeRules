@@ -107,19 +107,31 @@ public static class Database
 
     public static void InitData()
     {
-        string upgradesFilePath = Path.Combine(Application.streamingAssetsPath, "upgrades.txt");
-        if (File.Exists(upgradesFilePath))
+        string upgradesFilePath = Path.Combine(Application.dataPath, "upgrades.txt");
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            string[] lines = File.ReadAllLines(upgradesFilePath);
-            foreach (string line in lines)
-            {
-                allUpgrades.Add(line);
-            }
+            // Upgrades will be loaded from upgrade manager
         }
         else
         {
-            Debug.LogError("Upgrades file not found at: " + upgradesFilePath);
+            if (File.Exists(upgradesFilePath))
+            {
+                string[] lines = File.ReadAllLines(upgradesFilePath);
+                foreach (string line in lines)
+                {
+                    allUpgrades.Add(line);
+                }
+            }
+            else
+            {
+                Debug.LogError("Upgrades file not found at: " + upgradesFilePath);
+            }
         }
+    }
+
+    internal static void SetAllUpgrades(List<string> upgrades)
+    {
+        allUpgrades = upgrades;
     }
 
     internal static List<string> GetAllUpgrades()
