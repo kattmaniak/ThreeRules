@@ -107,7 +107,7 @@ public static class Database
 
     public static void InitData()
     {
-        string upgradesFilePath = Path.Combine(Application.dataPath, "upgrades.txt");
+        string upgradesFilePath = Path.Combine(Application.streamingAssetsPath, "upgrades.txt");
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             // Upgrades will be loaded from upgrade manager
